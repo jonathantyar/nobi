@@ -19,6 +19,8 @@ class InvestmentProductController extends Controller
 
         event(new UpdateTotalBalance($investmentProduct->id, $request->current_balance, now()->timestamp));
 
+        $investmentProduct->refresh();
+
         return response()->json([
             'nab' => $investmentProduct->nab
         ]);

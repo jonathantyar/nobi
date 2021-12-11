@@ -26,4 +26,9 @@ class InvestmentProduct extends Model
     {
         return $this->users->sum('pivot.balance');
     }
+
+    public function currentNab(Float $current_balance)
+    {
+        return $this->totalUnitInvestment() ? $current_balance / $this->totalUnitInvestment() : 1;
+    }
 }

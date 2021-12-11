@@ -16,12 +16,7 @@ class UpdateTotalBalanceProjector extends Projector
 {
     public function onUpdateTotalBalance(UpdateTotalBalance $event)
     {
-        $nab = 1;
-
-        $transactions = InvestmentProduct::find($event->investment_product_id);
-        if (!$transactions) {
-            $nab = Calculate::roundDown($event->balance / $transactions->totalUnitInvestment(), 4);
-        }
+        $nab = InvestmentProduct::find($event->investment_product_id)->currentNab($event->current_balance);
 
         InvestmentProduct::find($event->investment_product_id)->update([
             'nab' => $nab
