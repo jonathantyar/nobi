@@ -1,0 +1,113 @@
+openapi: 3.0.3
+info:
+  title: 'API Documentation'
+  description: 'These are API Documentation from using scribe'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/user:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/user/add:
+    post:
+      summary: 'User Add'
+      description: "This endpoint allows you to add a users to the database. It's a really useful endpoint,\n<aside class=\"notice\">Username should be unique :)</aside>"
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 4
+                  name: 'Jessica Jones'
+                  roles:
+                    - admin
+                properties:
+                  id:
+                    type: integer
+                    example: 4
+                  name:
+                    type: string
+                    example: 'Jessica Jones'
+                  roles:
+                    type: array
+                    example:
+                      - admin
+                    items:
+                      type: string
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: 'The username of the user.'
+                  example: vero
+                name:
+                  type: string
+                  description: 'The name of the user.'
+                  example: est
+              required:
+                - username
+                - name
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''
