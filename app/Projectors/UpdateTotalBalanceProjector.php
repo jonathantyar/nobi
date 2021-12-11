@@ -4,7 +4,6 @@ namespace App\Projectors;
 
 use Spatie\EventSourcing\EventHandlers\Projectors\Projector;
 use Carbon\Carbon;
-use Calculate;
 
 use App\StorableEvents\UpdateTotalBalance;
 

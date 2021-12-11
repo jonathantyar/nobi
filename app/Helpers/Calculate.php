@@ -4,8 +4,11 @@ namespace App\Helpers;
 
 class Calculate
 {
-    public static function roundDown(Int $calc, Int $roundDown)
+    /**
+     * Round down no matter high the last value
+     */
+    public static function roundDown(Float $calc, Int $roundDown)
     {
-        return round($calc, $roundDown, PHP_ROUND_HALF_DOWN);
+        return floor($calc * pow(10, $roundDown)) / pow(10, $roundDown);
     }
 }

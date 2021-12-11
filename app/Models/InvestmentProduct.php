@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Calculate;
 
 class InvestmentProduct extends Model
 {
@@ -29,6 +30,6 @@ class InvestmentProduct extends Model
 
     public function currentNab(Float $current_balance)
     {
-        return $this->totalUnitInvestment() ? $current_balance / $this->totalUnitInvestment() : 1;
+        return $this->totalUnitInvestment() ? Calculate::roundDown($current_balance / $this->totalUnitInvestment(), 4) : 1;
     }
 }
