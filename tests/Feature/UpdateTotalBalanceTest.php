@@ -63,11 +63,38 @@ test('Update total balance when unit not zero', function () {
         ['balance' => 2500000.25, 'unit' => 1500.0125]
     )->create();
 
+    /**
+     * 10000 / 1500.0125 = 6.6666
+     */
     $response = post(route('investment.update.balance', ['investment_product' => $investment->code]), [
         'current_balance' => 10000
     ]);
     $response->assertStatus(200);
     expect($response->json())->toMatchArray([
         'nab' => 6.6666
+    ]);
+});
+
+/**
+ * Test round down nab on calculate.
+ *
+ * @return void
+ */
+test('Update total balance when unit not zero check round down', function () {
+    $user = User::factory()->create();
+    $investment = InvestmentProduct::factory()->hasAttached(
+        $user,
+        ['balance' => 2500000.25, 'unit' => 5250.0125]
+    )->create();
+
+    /**
+     * 10000 / 1500.0125 = 6.6666
+     */
+    $response = post(route('investment.update.balance', ['investment_product' => $investment->code]), [
+        'current_balance' => 10000
+    ]);
+    $response->assertStatus(200);
+    expect($response->json())->toMatchArray([
+        'nab' => 1.9047
     ]);
 });
