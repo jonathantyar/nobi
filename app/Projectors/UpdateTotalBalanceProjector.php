@@ -8,7 +8,6 @@ use Carbon\Carbon;
 use App\StorableEvents\UpdateTotalBalance;
 
 use App\Models\InvestmentProduct;
-use App\Models\Events\Transaction;
 use App\Models\Events\NabHistory;
 
 class UpdateTotalBalanceProjector extends Projector

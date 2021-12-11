@@ -13,7 +13,7 @@ class CreateEventTransactionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('event_transactions', function (Blueprint $table) {
+        Schema::create('event_transaction_histories', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('investment_product_id');
@@ -21,6 +21,7 @@ class CreateEventTransactionsTable extends Migration
             $table->unsignedDecimal('nab', 13, 4)->default(0);
             $table->unsignedDecimal('unit', 13, 4)->default(0);
             $table->unsignedDecimal('total_unit', 13, 4)->default(0);
+            $table->unsignedDecimal('amount', 13, 2)->default(0);
             $table->unsignedDecimal('balance', 13, 2)->default(0);
             $table->dateTime('datetime');
         });
@@ -33,6 +34,6 @@ class CreateEventTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event_transactions');
+        Schema::dropIfExists('event_transaction_histories');
     }
 }

@@ -35,6 +35,9 @@ Route::prefix('v1')->group(function () {
 
     Route::name('investment.')->prefix('/{investment_product:code}')->group(function () {
         Route::post('/updateTotalBalance', [InvestmentProductController::class, 'updateTotalBalance'])->name('update.balance');
+
         Route::get('/listNAB', [InvestmentProductController::class, 'listNAB'])->name('list.nab');
+
+        Route::post('/topup', [InvestmentProductController::class, 'topup'])->name('topup');
     });
 });

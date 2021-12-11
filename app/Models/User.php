@@ -33,8 +33,13 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function investmests()
+    public function investments()
     {
         return $this->belongsToMany(InvestmentProduct::class, 'user_investment')->withPivot(['unit']);
+    }
+
+    public function investmentOnProduct(Int $investmentProductId)
+    {
+        return $this->investments()->where('investment_product_id', $investmentProductId)->first();
     }
 }
