@@ -17,7 +17,6 @@ class CreateUserInvestmentTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('investment_product_id');
-            $table->unsignedDecimal('balance', 13, 2);
             $table->unsignedDecimal('unit', 13, 4);
             $table->timestamps();
 

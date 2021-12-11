@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Calculate;
 
+use App\Models\Events\NabHistory;
+
 class InvestmentProduct extends Model
 {
     use HasFactory;
@@ -13,9 +15,14 @@ class InvestmentProduct extends Model
     public $timestamps = false;
     protected $fillable = ['code', 'name', 'nab'];
 
+    public function histories()
+    {
+        return $this->hasMany(NabHistory::class, 'investment_product_id', 'id')->latest('id');
+    }
+
     public function users()
     {
-        return $this->belongsToMany(User::class, 'user_investment')->withPivot(['balance', 'unit']);
+        return $this->belongsToMany(User::class, 'user_investment')->withPivot(['unit']);
     }
 
     public function totalUnitInvestment()
