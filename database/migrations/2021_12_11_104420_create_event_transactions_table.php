@@ -16,7 +16,7 @@ class CreateEventTransactionsTable extends Migration
         Schema::create('event_transactions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('investment_products_id');
+            $table->unsignedBigInteger('investment_product_id');
             $table->enum('type', ['debit', 'credit']);
             $table->unsignedDouble('nab')->default(0);
             $table->unsignedDouble('unit')->default(0);
