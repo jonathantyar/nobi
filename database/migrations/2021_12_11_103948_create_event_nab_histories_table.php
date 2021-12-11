@@ -16,9 +16,8 @@ class CreateEventNabHistoriesTable extends Migration
         Schema::create('event_nab_histories', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('investment_products_id');
-            $table->dateTime('datetime');
             $table->unsignedDouble('nab');
-            $table->timestamps();
+            $table->dateTime('datetime');
         });
     }
 
