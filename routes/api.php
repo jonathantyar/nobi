@@ -39,5 +39,6 @@ Route::prefix('v1')->group(function () {
         Route::get('/listNAB', [InvestmentProductController::class, 'listNAB'])->name('list.nab');
 
         Route::post('/topup', [InvestmentProductController::class, 'topup'])->name('topup');
+        Route::post('/withdraw', [InvestmentProductController::class, 'withdraw'])->name('withdraw');
     });
 });
