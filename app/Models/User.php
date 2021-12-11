@@ -32,4 +32,9 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function investmests()
+    {
+        return $this->belongsToMany(InvestmentProduct::class, 'user_investment')->withPivot(['balance', 'unit']);
+    }
 }

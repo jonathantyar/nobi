@@ -11,4 +11,9 @@ class InvestmentProduct extends Model
 
     public $timestamps = false;
     protected $fillable = ['code', 'name', 'nab'];
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user_investment')->withPivot(['balance', 'unit']);
+    }
 }
