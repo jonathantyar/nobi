@@ -10,7 +10,7 @@ use function Pest\Laravel\post;
  */
 test('Investment product code does not exists', function () {
     $investment = InvestmentProduct::factory()->definition();
-    $response = post(route('investment.update.balance', ['product.code' => $investment['code']]), []);
+    $response = post(route('investment.update.balance', ['investment_product' => $investment['code']]), []);
     $response->assertStatus(404);
 });
 
@@ -21,11 +21,11 @@ test('Investment product code does not exists', function () {
  */
 test('Request given is incomplete and not valid', function () {
     $investment = InvestmentProduct::factory()->create();
-    $response = post(route('investment.update.balance', ['product.code' => $investment->code]), []);
+    $response = post(route('investment.update.balance', ['investment_product' => $investment->code]), []);
     $response->assertStatus(422);
     $response->assertJsonValidationErrors(['current_balance']);
 
-    $response = post(route('investment.update.balance', ['product.code' => $investment->code]), [
+    $response = post(route('investment.update.balance', ['investment_product' => $investment->code]), [
         'current_balance' => 'string'
     ]);
     $response->assertStatus(422);
