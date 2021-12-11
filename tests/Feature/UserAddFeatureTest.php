@@ -15,7 +15,7 @@ test('Request given is incomplete', function () {
     $response->assertStatus(422);
     $response->assertJsonValidationErrors(['username', 'name']);
 
-    $response = $this->post(route('user.add'), [
+    $response = post(route('user.add'), [
         'username' => $user['username']
     ]);
     $response->assertStatus(422);
@@ -30,7 +30,7 @@ test('Request given is incomplete', function () {
 test('Username already taken handler', function () {
     $user = User::factory()->create();
 
-    $response = $this->post(route('user.add'), [
+    $response = post(route('user.add'), [
         'username' => $user->username,
         'name' => $user->name
     ]);

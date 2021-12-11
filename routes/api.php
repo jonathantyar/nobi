@@ -33,7 +33,7 @@ Route::prefix('v1')->group(function () {
     Route::post('/user/add', [AuthController::class, 'userAdd'])->name('user.add');
     Route::post('/user/authenticate', [AuthController::class, 'userAuthenticate'])->name('user.authenticate');
 
-    Route::name('/investment')->prefix('/{product.code}')->group(function () {
+    Route::name('investment.')->prefix('/{product.code}')->group(function () {
         Route::post('/updateTotalBalance', [InvestmentProductController::class, 'updateTotalBalance'])->name('update.balance');
     });
 });
