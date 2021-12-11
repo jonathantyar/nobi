@@ -17,7 +17,7 @@ class CreateInvestmentProductsTable extends Migration
             $table->id();
             $table->char('code', 4);
             $table->string('name');
-            $table->unsignedDouble('nab')->default(1);
+            $table->decimal('nab', 13, 4)->default(1);
         });
     }
 

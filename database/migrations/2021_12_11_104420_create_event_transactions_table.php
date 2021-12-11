@@ -18,10 +18,10 @@ class CreateEventTransactionsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('investment_product_id');
             $table->enum('type', ['debit', 'credit']);
-            $table->unsignedDouble('nab')->default(0);
-            $table->unsignedDouble('unit')->default(0);
-            $table->unsignedDouble('total_unit')->default(0);
-            $table->unsignedBigInteger('amount')->default(0);
+            $table->unsignedDecimal('nab', 13, 4)->default(0);
+            $table->unsignedDecimal('unit', 13, 4)->default(0);
+            $table->unsignedDecimal('total_unit', 13, 4)->default(0);
+            $table->unsignedDecimal('balance', 13, 2)->default(0);
             $table->dateTime('datetime');
         });
     }

@@ -44,4 +44,7 @@ test('Update total balance when unit zero', function () {
         'current_balance' => 100000
     ]);
     $response->assertStatus(200);
+    expect($response->json())->toMatchArray([
+        'nab' => 1
+    ]);
 });
