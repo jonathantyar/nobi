@@ -40,7 +40,7 @@ test('Username already taken handler', function () {
 });
 
 /**
- * Test user username already taken.
+ * Test creating user.
  *
  * @return void
  */
