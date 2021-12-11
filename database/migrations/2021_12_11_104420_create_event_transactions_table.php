@@ -17,7 +17,7 @@ class CreateEventTransactionsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('investment_product_id');
-            $table->enum('type', ['debit', 'credit']);
+            $table->enum('type', ['topup', 'withdraw']);
             $table->unsignedDecimal('nab', 13, 4)->default(0);
             $table->unsignedDecimal('unit', 13, 4)->default(0);
             $table->unsignedDecimal('total_unit', 13, 4)->default(0);

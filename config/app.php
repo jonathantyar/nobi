@@ -230,6 +230,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Calculate' => App\Helpers\Calculate::class,
+        'ResponseWrapper' => App\Helpers\ResponseWrapper::class,
 
     ],
 

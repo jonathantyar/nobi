@@ -19,19 +19,18 @@ class TransactionProjector extends Projector
         $invest = $user->investmentOnProduct($event->investment_product_id);
         if ($invest) {
             switch ($event->type) {
-                case 'debit':
+                case 'topup':
                     $event->total_unit = $invest->pivot->unit + $event->unit;
                     break;
 
-                case 'credit':
+                case 'withdraw':
                     $event->total_unit = $invest->pivot->unit - $event->unit;
                     break;
             }
-
             $user->investments()->sync([$event->investment_product_id => ['unit' => $event->total_unit]]);
         } else {
-            $user->investments()->attach([$event->investment_product_id => ['unit' => $event->unit]]);
             $event->total_unit = $event->unit;
+            $user->investments()->attach([$event->investment_product_id => ['unit' => $event->unit]]);
         }
 
         $event->balance = $event->nab * $event->total_unit;
