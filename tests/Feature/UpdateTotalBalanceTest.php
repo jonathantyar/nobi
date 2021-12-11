@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\User;
 use App\Models\InvestmentProduct;
+
 use function Pest\Laravel\post;
 
 /**
@@ -46,5 +48,26 @@ test('Update total balance when unit zero', function () {
     $response->assertStatus(200);
     expect($response->json())->toMatchArray([
         'nab' => 1
+    ]);
+});
+
+/**
+ * Test update total balance when there already units in product investment.
+ *
+ * @return void
+ */
+test('Update total balance when unit not zero', function () {
+    $user = User::factory()->create();
+    $investment = InvestmentProduct::factory()->hasAttached(
+        $user,
+        ['balance' => 2500000.25, 'unit' => 1500.0125]
+    )->create();
+
+    $response = post(route('investment.update.balance', ['investment_product' => $investment->code]), [
+        'current_balance' => 10000
+    ]);
+    $response->assertStatus(200);
+    expect($response->json())->toMatchArray([
+        'nab' => 6.6666
     ]);
 });
