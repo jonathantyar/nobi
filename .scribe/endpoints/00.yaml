@@ -35,6 +35,7 @@ endpoints:
       description: |-
         This endpoint allows you to add a users to the database. It's a really useful endpoint,
         <aside class="notice">Username should be unique :)</aside>
+        <aside class="notice">There are settings for default password</aside>
       authenticated: false
       custom: []
     headers:
@@ -47,22 +48,59 @@ endpoints:
         name: username
         description: 'The username of the user.'
         required: true
-        example: vero
+        example: et
         type: string
       name:
         name: name
         description: 'The name of the user.'
         required: true
-        example: est
+        example: illum
         type: string
     responses:
       -
         status: 200
         content: |-
           {
-           "id": 4,
-           "name": "Jessica Jones",
-           "roles": ["admin"]
+           "id_user": 4,
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/user/authenticate
+    metadata:
+      title: 'User Authenticate'
+      description: |-
+        This endpoint allows you to authenticate as user.
+        <aside class="notice">The default password are 'nobi'</aside>
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      username:
+        name: username
+        description: 'The username of the user.'
+        required: true
+        example: sunt
+        type: string
+      password:
+        name: password
+        description: 'The password of the user.'
+        required: true
+        example: voluptas
+        type: string
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "id_user": 4,
           }
         headers: []
         description: '200'

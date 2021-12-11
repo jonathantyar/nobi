@@ -21,5 +21,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('v1')->group(function () {
+    /*
+    |--------------------------------------------------------------------------
+    | User Routes
+    |--------------------------------------------------------------------------
+    |
+    | For authenticated users, creating a new user
+    |
+    */
     Route::post('/user/add', [AuthController::class, 'userAdd']);
+    Route::post('/user/authenticate', [AuthController::class, 'userAuthenticate']);
 });

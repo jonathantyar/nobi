@@ -80,6 +80,9 @@
                                     <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-user-add">
                         <a href="#endpoints-POSTapi-v1-user-add">User Add</a>
                     </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-user-authenticate">
+                        <a href="#endpoints-POSTapi-v1-user-authenticate">User Authenticate</a>
+                    </li>
                                                     </ul>
                             </ul>
         
@@ -218,6 +221,7 @@ access-control-allow-origin: *
 
 <p>This endpoint allows you to add a users to the database. It's a really useful endpoint,</p>
 <aside class="notice">Username should be unique :)</aside>
+<aside class="notice">There are settings for default password</aside>
 
 <span id="example-requests-POSTapi-v1-user-add">
 <blockquote>Example request:</blockquote>
@@ -229,8 +233,8 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"username\": \"vero\",
-    \"name\": \"est\"
+    \"username\": \"et\",
+    \"name\": \"illum\"
 }"
 </code></pre></div>
 
@@ -246,8 +250,8 @@ const headers = {
 };
 
 let body = {
-    "username": "vero",
-    "name": "est"
+    "username": "et",
+    "name": "illum"
 };
 
 fetch(url, {
@@ -265,11 +269,7 @@ fetch(url, {
                 <pre>
 
 <code class="language-json">{
-    &quot;id&quot;: 4,
-    &quot;name&quot;: &quot;Jessica Jones&quot;,
-    &quot;roles&quot;: [
-        &quot;admin&quot;
-    ]
+ &quot;id_user&quot;: 4,
 }</code>
  </pre>
     </span>
@@ -318,7 +318,7 @@ fetch(url, {
                 <input type="text"
                name="username"
                data-endpoint="POSTapi-v1-user-add"
-               value="vero"
+               value="et"
                data-component="body" hidden>
     <br>
 <p>The username of the user.</p>
@@ -328,10 +328,130 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-v1-user-add"
-               value="est"
+               value="illum"
                data-component="body" hidden>
     <br>
 <p>The name of the user.</p>
+        </p>
+        </form>
+
+            <h2 id="endpoints-POSTapi-v1-user-authenticate">User Authenticate</h2>
+
+<p>
+</p>
+
+<p>This endpoint allows you to authenticate as user.</p>
+<aside class="notice">The default password are 'nobi'</aside>
+
+<span id="example-requests-POSTapi-v1-user-authenticate">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/v1/user/authenticate" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"username\": \"sunt\",
+    \"password\": \"voluptas\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/authenticate"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "username": "sunt",
+    "password": "voluptas"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-user-authenticate">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+ &quot;id_user&quot;: 4,
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-user-authenticate" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-user-authenticate"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-user-authenticate"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-user-authenticate" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-user-authenticate"></code></pre>
+</span>
+<form id="form-POSTapi-v1-user-authenticate" data-method="POST"
+      data-path="api/v1/user/authenticate"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-user-authenticate', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-user-authenticate"
+                    onclick="tryItOut('POSTapi-v1-user-authenticate');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-user-authenticate"
+                    onclick="cancelTryOut('POSTapi-v1-user-authenticate');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-user-authenticate" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/user/authenticate</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>username</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="username"
+               data-endpoint="POSTapi-v1-user-authenticate"
+               value="sunt"
+               data-component="body" hidden>
+    <br>
+<p>The username of the user.</p>
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-v1-user-authenticate"
+               value="voluptas"
+               data-component="body" hidden>
+    <br>
+<p>The password of the user.</p>
         </p>
         </form>
 

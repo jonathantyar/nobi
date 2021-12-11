@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "API Documentation",
-        "_postman_id": "3af27037-5be1-4751-b8d9-0b7531cb3041",
+        "_postman_id": "de522804-0717-4e44-bdfb-0ffc752a94c0",
         "description": "These are API Documentation from using scribe",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -91,9 +91,9 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"username\":\"vero\",\"name\":\"est\"}"
+                            "raw": "{\"username\":\"et\",\"name\":\"illum\"}"
                         },
-                        "description": "This endpoint allows you to add a users to the database. It's a really useful endpoint,\n<aside class=\"notice\">Username should be unique :)<\/aside>",
+                        "description": "This endpoint allows you to add a users to the database. It's a really useful endpoint,\n<aside class=\"notice\">Username should be unique :)<\/aside>\n<aside class=\"notice\">There are settings for default password<\/aside>",
                         "auth": {
                             "type": "noauth"
                         }
@@ -102,7 +102,46 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n \"id\": 4,\n \"name\": \"Jessica Jones\",\n \"roles\": [\"admin\"]\n}",
+                            "body": "{\n \"id_user\": 4,\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "User Authenticate",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user\/authenticate",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/user\/authenticate"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"username\":\"sunt\",\"password\":\"voluptas\"}"
+                        },
+                        "description": "This endpoint allows you to authenticate as user.\n<aside class=\"notice\">The default password are 'nobi'<\/aside>",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"id_user\": 4,\n}",
                             "name": ""
                         }
                     ]
