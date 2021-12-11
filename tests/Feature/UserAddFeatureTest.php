@@ -1,7 +1,5 @@
 <?php
 
-namespace Tests\Feature;
-
 use App\Models\User;
 use function Pest\Laravel\post;
 
@@ -13,11 +11,11 @@ use function Pest\Laravel\post;
 test('Request given is incomplete', function () {
     $user = User::factory()->definition();
 
-    $response = post('api/v1/user/add', []);
+    $response = post(route('user.add'), []);
     $response->assertStatus(422);
     $response->assertJsonValidationErrors(['username', 'name']);
 
-    $response = $this->post('api/v1/user/add', [
+    $response = $this->post(route('user.add'), [
         'username' => $user['username']
     ]);
     $response->assertStatus(422);
@@ -32,7 +30,7 @@ test('Request given is incomplete', function () {
 test('Username already taken handler', function () {
     $user = User::factory()->create();
 
-    $response = $this->post('api/v1/user/add', [
+    $response = $this->post(route('user.add'), [
         'username' => $user->username,
         'name' => $user->name
     ]);
@@ -49,7 +47,7 @@ test('Username already taken handler', function () {
 test('User created', function () {
     $user = User::factory()->definition();
 
-    $response = post('api/v1/user/add', [
+    $response = post(route('user.add'), [
         'username' => $user['username'],
         'name' => $user['name']
     ]);

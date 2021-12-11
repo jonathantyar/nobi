@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\V1\AuthController;
+use App\Http\Controllers\V1\InvestmentProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,10 @@ Route::prefix('v1')->group(function () {
     | For authenticated users, creating a new user
     |
     */
-    Route::post('/user/add', [AuthController::class, 'userAdd']);
-    Route::post('/user/authenticate', [AuthController::class, 'userAuthenticate']);
+    Route::post('/user/add', [AuthController::class, 'userAdd'])->name('user.add');
+    Route::post('/user/authenticate', [AuthController::class, 'userAuthenticate'])->name('user.authenticate');
+
+    Route::name('/investment')->prefix('/{product.code}')->group(function () {
+        Route::post('/updateTotalBalance', [InvestmentProductController::class, 'updateTotalBalance'])->name('update.balance');
+    });
 });
