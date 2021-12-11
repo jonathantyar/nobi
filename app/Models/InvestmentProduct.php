@@ -16,4 +16,14 @@ class InvestmentProduct extends Model
     {
         return $this->belongsToMany(User::class, 'user_investment')->withPivot(['balance', 'unit']);
     }
+
+    public function totalUnitInvestment()
+    {
+        return $this->users->sum('pivot.unit');
+    }
+
+    public function totalBalanceInvestment()
+    {
+        return $this->users->sum('pivot.balance');
+    }
 }

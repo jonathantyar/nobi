@@ -18,9 +18,9 @@ class UpdateTotalBalanceProjector extends Projector
     {
         $nab = 1;
 
-        $transactions = Transaction::where('investment_product_id', $event->investment_product_id)->get('unit');
-        if ($transactions->count()) {
-            $nab = Calculate::roundDown($event->balance / $transactions->sum('unit'), 4);
+        $transactions = InvestmentProduct::find($event->investment_product_id);
+        if (!$transactions) {
+            $nab = Calculate::roundDown($event->balance / $transactions->totalUnitInvestment(), 4);
         }
 
         InvestmentProduct::find($event->investment_product_id)->update([
