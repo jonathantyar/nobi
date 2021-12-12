@@ -7,41 +7,6 @@ servers:
   -
     url: 'http://localhost'
 paths:
-  /api/user:
-    get:
-      summary: ''
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
   /api/v1/user/add:
     post:
       summary: 'User Add'
@@ -81,11 +46,11 @@ paths:
                 username:
                   type: string
                   description: 'The username of the user.'
-                  example: delectus
+                  example: saepe
                 name:
                   type: string
                   description: 'The name of the user.'
-                  example: ex
+                  example: sed
               required:
                 - username
                 - name
@@ -129,11 +94,11 @@ paths:
                 username:
                   type: string
                   description: 'The username of the user.'
-                  example: suscipit
+                  example: ad
                 password:
                   type: string
                   description: 'The password of the user.'
-                  example: libero
+                  example: quae
               required:
                 - username
                 - password
@@ -177,7 +142,7 @@ paths:
                 current_balance:
                   type: numeric
                   description: 'The current balance of the product.'
-                  example: qui
+                  example: iure
               required:
                 - current_balance
       security: []
@@ -186,7 +151,7 @@ paths:
         in: path
         name: investment_product_code
         description: ''
-        example: fugit
+        example: qui
         required: true
         schema:
           type: string
@@ -225,7 +190,7 @@ paths:
         in: path
         name: investment_product_code
         description: ''
-        example: beatae
+        example: possimus
         required: true
         schema:
           type: string
@@ -264,7 +229,7 @@ paths:
         in: path
         name: investment_product_code
         description: ''
-        example: blanditiis
+        example: eum
         required: true
         schema:
           type: string
@@ -307,11 +272,11 @@ paths:
                 user_id:
                   type: numeric
                   description: 'user id.'
-                  example: et
+                  example: doloribus
                 amount_rupiah:
                   type: numeric
                   description: 'the amount user want to top up.'
-                  example: et
+                  example: voluptatibus
               required:
                 - user_id
                 - amount_rupiah
@@ -321,7 +286,7 @@ paths:
         in: path
         name: investment_product_code
         description: ''
-        example: magni
+        example: qui
         required: true
         schema:
           type: string
@@ -364,11 +329,11 @@ paths:
                 user_id:
                   type: numeric
                   description: 'user id.'
-                  example: maxime
+                  example: suscipit
                 amount_rupiah:
                   type: numeric
                   description: 'the amount user want to top up.'
-                  example: vel
+                  example: consequatur
               required:
                 - user_id
                 - amount_rupiah
@@ -378,7 +343,7 @@ paths:
         in: path
         name: investment_product_code
         description: ''
-        example: qui
+        example: delectus
         required: true
         schema:
           type: string

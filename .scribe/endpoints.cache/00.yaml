@@ -5,31 +5,6 @@ description: ''
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/user
-    metadata:
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-  -
-    httpMethods:
       - POST
     uri: api/v1/user/add
     metadata:
@@ -50,13 +25,13 @@ endpoints:
         name: username
         description: 'The username of the user.'
         required: true
-        example: delectus
+        example: saepe
         type: string
       name:
         name: name
         description: 'The name of the user.'
         required: true
-        example: ex
+        example: sed
         type: string
     responses:
       -
@@ -89,13 +64,13 @@ endpoints:
         name: username
         description: 'The username of the user.'
         required: true
-        example: suscipit
+        example: ad
         type: string
       password:
         name: password
         description: 'The password of the user.'
         required: true
-        example: libero
+        example: quae
         type: string
     responses:
       -
@@ -124,7 +99,7 @@ endpoints:
         name: investment_product_code
         description: ''
         required: true
-        example: fugit
+        example: qui
         type: string
     queryParameters: []
     bodyParameters:
@@ -132,7 +107,7 @@ endpoints:
         name: current_balance
         description: 'The current balance of the product.'
         required: true
-        example: qui
+        example: iure
         type: numeric
     responses:
       -
@@ -161,7 +136,7 @@ endpoints:
         name: investment_product_code
         description: ''
         required: true
-        example: beatae
+        example: possimus
         type: string
     queryParameters: []
     bodyParameters: []
@@ -195,7 +170,7 @@ endpoints:
         name: investment_product_code
         description: ''
         required: true
-        example: blanditiis
+        example: eum
         type: string
     queryParameters: []
     bodyParameters: []
@@ -233,7 +208,7 @@ endpoints:
         name: investment_product_code
         description: ''
         required: true
-        example: magni
+        example: qui
         type: string
     queryParameters: []
     bodyParameters:
@@ -241,13 +216,13 @@ endpoints:
         name: user_id
         description: 'user id.'
         required: true
-        example: et
+        example: doloribus
         type: numeric
       amount_rupiah:
         name: amount_rupiah
         description: 'the amount user want to top up.'
         required: true
-        example: et
+        example: voluptatibus
         type: numeric
     responses:
       -
@@ -278,7 +253,7 @@ endpoints:
         name: investment_product_code
         description: ''
         required: true
-        example: qui
+        example: delectus
         type: string
     queryParameters: []
     bodyParameters:
@@ -286,13 +261,13 @@ endpoints:
         name: user_id
         description: 'user id.'
         required: true
-        example: maxime
+        example: suscipit
         type: numeric
       amount_rupiah:
         name: amount_rupiah
         description: 'the amount user want to top up.'
         required: true
-        example: vel
+        example: consequatur
         type: numeric
     responses:
       -
