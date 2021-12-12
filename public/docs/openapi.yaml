@@ -1,0 +1,388 @@
+openapi: 3.0.3
+info:
+  title: 'Nobi Investment - API Documentation'
+  description: 'These are API Documentation for Nobi Investment'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/user:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/user/add:
+    post:
+      summary: 'User Add'
+      description: "This endpoint allows you to add a users to the database. It's a really useful endpoint,\n<aside class=\"notice\">Username should be unique :)</aside>\n<aside class=\"notice\">There are settings for default password</aside>"
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"id_user\": 4,\n}"
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: 'The username of the user.'
+                  example: delectus
+                name:
+                  type: string
+                  description: 'The name of the user.'
+                  example: ex
+              required:
+                - username
+                - name
+      security: []
+  /api/v1/user/authenticate:
+    post:
+      summary: 'User Authenticate'
+      description: "This endpoint allows you to authenticate as user.\n<aside class=\"notice\">The default password are 'nobi'</aside>"
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"token\": 3|lObhIwULaaDGXCkK86wVfb9Kmcgdyx7BG19VtrBY,\n}"
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: 'The username of the user.'
+                  example: suscipit
+                password:
+                  type: string
+                  description: 'The password of the user.'
+                  example: libero
+              required:
+                - username
+                - password
+      security: []
+  '/api/v1/{investment_product_code}/updateTotalBalance':
+    post:
+      summary: 'Update Total Balance'
+      description: 'This endpoint allows you to update total balance of an investment product.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"nab\": 1.2452,\n}"
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                current_balance:
+                  type: numeric
+                  description: 'The current balance of the product.'
+                  example: qui
+              required:
+                - current_balance
+      security: []
+    parameters:
+      -
+        in: path
+        name: investment_product_code
+        description: ''
+        example: fugit
+        required: true
+        schema:
+          type: string
+  '/api/v1/{investment_product_code}/listNAB':
+    get:
+      summary: 'List of NAB'
+      description: 'This endpoint allows you to list all the recent histories of NAB.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n[\n \"nab\": 2.4243,\n \"datetime\": \"2013-02-01 00:00:00\"\n]\n}"
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: investment_product_code
+        description: ''
+        example: beatae
+        required: true
+        schema:
+          type: string
+  '/api/v1/{investment_product_code}/member':
+    get:
+      summary: 'List of Member'
+      description: 'This endpoint allows you to list all member on these product investment.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n[\n \"nab\": 2.4243,\n \"members\": [\n     \"userid\": 2924,\n     \"total_unit_per_uid\": 124234.3242,\n     \"total_amountrupiah_per_uid\": 25000.25\n]\n]\n}"
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: investment_product_code
+        description: ''
+        example: blanditiis
+        required: true
+        schema:
+          type: string
+  '/api/v1/{investment_product_code}/topup':
+    post:
+      summary: 'Top Up'
+      description: 'This endpoint allows you to topup to the investment product.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"nilai_unit_hasil_topup\": 1.2452,\n \"nilai_unit_total\": 1.2452,\n \"saldo_rupiah_total\": 129455.25,\n}"
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: numeric
+                  description: 'user id.'
+                  example: et
+                amount_rupiah:
+                  type: numeric
+                  description: 'the amount user want to top up.'
+                  example: et
+              required:
+                - user_id
+                - amount_rupiah
+      security: []
+    parameters:
+      -
+        in: path
+        name: investment_product_code
+        description: ''
+        example: magni
+        required: true
+        schema:
+          type: string
+  '/api/v1/{investment_product_code}/withdraw':
+    post:
+      summary: Withdraw
+      description: 'This endpoint allows you to withdraw to the investment product.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"nilai_unit_setelah_withdraw\": 1.2452,\n \"nilai_unit_total\": 1.2452,\n \"saldo_rupiah_total\": 129455.25,\n}"
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: numeric
+                  description: 'user id.'
+                  example: maxime
+                amount_rupiah:
+                  type: numeric
+                  description: 'the amount user want to top up.'
+                  example: vel
+              required:
+                - user_id
+                - amount_rupiah
+      security: []
+    parameters:
+      -
+        in: path
+        name: investment_product_code
+        description: ''
+        example: qui
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: Endpoints
+    description: ''

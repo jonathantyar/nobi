@@ -1,0 +1,384 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "localhost"
+        }
+    ],
+    "info": {
+        "name": "Nobi Investment - API Documentation",
+        "_postman_id": "7bf74fef-03e0-41cb-a244-55a6fd3d152c",
+        "description": "These are API Documentation for Nobi Investment",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "api\/user",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "User Add",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user\/add",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/user\/add"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"username\":\"delectus\",\"name\":\"ex\"}"
+                        },
+                        "description": "This endpoint allows you to add a users to the database. It's a really useful endpoint,\n<aside class=\"notice\">Username should be unique :)<\/aside>\n<aside class=\"notice\">There are settings for default password<\/aside>",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"id_user\": 4,\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "User Authenticate",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user\/authenticate",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/user\/authenticate"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"username\":\"suscipit\",\"password\":\"libero\"}"
+                        },
+                        "description": "This endpoint allows you to authenticate as user.\n<aside class=\"notice\">The default password are 'nobi'<\/aside>",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"token\": 3|lObhIwULaaDGXCkK86wVfb9Kmcgdyx7BG19VtrBY,\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Update Total Balance",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:investment_product_code\/updateTotalBalance",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/:investment_product_code\/updateTotalBalance",
+                            "variable": [
+                                {
+                                    "id": "investment_product_code",
+                                    "key": "investment_product_code",
+                                    "value": "fugit",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"current_balance\":\"qui\"}"
+                        },
+                        "description": "This endpoint allows you to update total balance of an investment product.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"nab\": 1.2452,\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "List of NAB",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:investment_product_code\/listNAB",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/:investment_product_code\/listNAB",
+                            "variable": [
+                                {
+                                    "id": "investment_product_code",
+                                    "key": "investment_product_code",
+                                    "value": "beatae",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint allows you to list all the recent histories of NAB.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n[\n \"nab\": 2.4243,\n \"datetime\": \"2013-02-01 00:00:00\"\n]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "List of Member",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:investment_product_code\/member",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/:investment_product_code\/member",
+                            "variable": [
+                                {
+                                    "id": "investment_product_code",
+                                    "key": "investment_product_code",
+                                    "value": "blanditiis",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint allows you to list all member on these product investment.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n[\n \"nab\": 2.4243,\n \"members\": [\n     \"userid\": 2924,\n     \"total_unit_per_uid\": 124234.3242,\n     \"total_amountrupiah_per_uid\": 25000.25\n]\n]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Top Up",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:investment_product_code\/topup",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/:investment_product_code\/topup",
+                            "variable": [
+                                {
+                                    "id": "investment_product_code",
+                                    "key": "investment_product_code",
+                                    "value": "magni",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"user_id\":\"et\",\"amount_rupiah\":\"et\"}"
+                        },
+                        "description": "This endpoint allows you to topup to the investment product.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"nilai_unit_hasil_topup\": 1.2452,\n \"nilai_unit_total\": 1.2452,\n \"saldo_rupiah_total\": 129455.25,\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Withdraw",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:investment_product_code\/withdraw",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/:investment_product_code\/withdraw",
+                            "variable": [
+                                {
+                                    "id": "investment_product_code",
+                                    "key": "investment_product_code",
+                                    "value": "qui",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"user_id\":\"maxime\",\"amount_rupiah\":\"vel\"}"
+                        },
+                        "description": "This endpoint allows you to withdraw to the investment product.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"nilai_unit_setelah_withdraw\": 1.2452,\n \"nilai_unit_total\": 1.2452,\n \"saldo_rupiah_total\": 129455.25,\n}",
+                            "name": "Success"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}
