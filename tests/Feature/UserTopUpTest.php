@@ -50,9 +50,11 @@ test('User top up first time', function () {
     ]);
     $response->assertStatus(200);
     expect($response->json())->toMatchArray([
-        'nilai_unit_hasil_topup' => 15000.05,
-        'nilai_unit_total' => 15000.05,
-        'saldo_rupiah_total' => 15000.05
+        'data' => [
+            'nilai_unit_hasil_topup' => 15000.05,
+            'nilai_unit_total' => 15000.05,
+            'saldo_rupiah_total' => 15000.05
+        ]
     ]);
 });
 
@@ -71,9 +73,11 @@ test('User top up multiple times', function () {
     ]);
     $response->assertStatus(200);
     expect($response->json())->toMatchArray([
-        'nilai_unit_hasil_topup' => 15000.05,
-        'nilai_unit_total' => 15000.05,
-        'saldo_rupiah_total' => 15000.05
+        'data' => [
+            'nilai_unit_hasil_topup' => 15000.05,
+            'nilai_unit_total' => 15000.05,
+            'saldo_rupiah_total' => 15000.05
+        ]
     ]);
 
     /**
@@ -84,7 +88,9 @@ test('User top up multiple times', function () {
     ]);
     $response->assertStatus(200);
     expect($response->json())->toMatchArray([
-        'nab' => 1.3333
+        'data' => [
+            'nab' => 1.3333
+        ]
     ]);
 
     $response = post(route('investment.topup', ['investment_product' => $investment->code]), [
@@ -93,8 +99,10 @@ test('User top up multiple times', function () {
     ]);
     $response->assertStatus(200);
     expect($response->json())->toMatchArray([
-        'nilai_unit_hasil_topup' => 7500.6000,
-        'nilai_unit_total' => 22500.6500,
-        'saldo_rupiah_total' => 30000.11
+        'data' => [
+            'nilai_unit_hasil_topup' => 7500.6000,
+            'nilai_unit_total' => 22500.6500,
+            'saldo_rupiah_total' => 30000.11
+        ]
     ]);
 });

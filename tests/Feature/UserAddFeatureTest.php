@@ -53,5 +53,5 @@ test('User created', function () {
     ]);
 
     $response->assertStatus(200);
-    expect($response->json())->toHaveKey('id_user');
+    expect($response->json())->toHaveKey('data.id_user');
 });

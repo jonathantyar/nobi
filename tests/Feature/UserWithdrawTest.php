@@ -50,9 +50,11 @@ test('User withdraw below the unit he had', function () {
     ]);
     $response->assertStatus(200);
     expect($response->json())->toMatchArray([
-        'nilai_unit_hasil_topup' => 15000.05,
-        'nilai_unit_total' => 15000.05,
-        'saldo_rupiah_total' => 15000.05
+        'data' => [
+            'nilai_unit_hasil_topup' => 15000.05,
+            'nilai_unit_total' => 15000.05,
+            'saldo_rupiah_total' => 15000.05
+        ]
     ]);
 
     /**
@@ -63,7 +65,9 @@ test('User withdraw below the unit he had', function () {
     ]);
     $response->assertStatus(200);
     expect($response->json())->toMatchArray([
-        'nab' => 1.3333
+        'data' => [
+            'nab' => 1.3333
+        ]
     ]);
 
     $response = post(route('investment.withdraw', ['investment_product' => $investment->code]), [
@@ -95,9 +99,11 @@ test('User cannot withdraw more than the unit he had', function () {
     ]);
     $response->assertStatus(200);
     expect($response->json())->toMatchArray([
-        'nilai_unit_hasil_topup' => 15000.05,
-        'nilai_unit_total' => 15000.05,
-        'saldo_rupiah_total' => 15000.05
+        'data' => [
+            'nilai_unit_hasil_topup' => 15000.05,
+            'nilai_unit_total' => 15000.05,
+            'saldo_rupiah_total' => 15000.05
+        ]
     ]);
 
     /**
@@ -108,7 +114,9 @@ test('User cannot withdraw more than the unit he had', function () {
     ]);
     $response->assertStatus(200);
     expect($response->json())->toMatchArray([
-        'nab' => 1.3333
+        'data' => [
+            'nab' => 1.3333
+        ]
     ]);
 
     $response = post(route('investment.withdraw', ['investment_product' => $investment->code]), [

@@ -48,7 +48,9 @@ test('Update total balance when unit zero', function () {
     ]);
     $response->assertStatus(200);
     expect($response->json())->toMatchArray([
-        'nab' => 1
+        'data' => [
+            'nab' => 1
+        ]
     ]);
 });
 
@@ -72,7 +74,9 @@ test('Update total balance when unit not zero', function () {
     ]);
     $response->assertStatus(200);
     expect($response->json())->toMatchArray([
-        'nab' => 6.6666
+        'data' => [
+            'nab' => 6.6666
+        ]
     ]);
 });
 
@@ -96,7 +100,9 @@ test('Update total balance when unit not zero check round down', function () {
     ]);
     $response->assertStatus(200);
     expect($response->json())->toMatchArray([
-        'nab' => 1.9047
+        'data' => [
+            'nab' => 1.9047
+        ]
     ]);
 });
 
@@ -120,7 +126,9 @@ test('Update total balance and list get the lastest', function () {
     ]);
     $response->assertStatus(200);
     expect($response->json())->toMatchArray([
-        'nab' => 2.2857
+        'data' => [
+            'nab' => 2.2857
+        ]
     ]);
 
     /**
@@ -131,13 +139,15 @@ test('Update total balance and list get the lastest', function () {
     ]);
     $response->assertStatus(200);
     expect($response->json())->toMatchArray([
-        'nab' => 1.9047
+        'data' => [
+            'nab' => 1.9047
+        ]
     ]);
 
 
     $response = get(route('investment.list.nab', ['investment_product' => $investment->code]), []);
     $response->assertStatus(200);
-    expect($response->json()[0])->toMatchArray([
+    expect($response->json()['data'][0])->toMatchArray([
         'nab' => 1.9047
     ]);
 });
