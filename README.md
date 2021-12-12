@@ -23,6 +23,15 @@ php artisan migrate
 php artisan test
 ```
 
+### Requirement docs
+
+For postman collection and mysql dump are prepared in these [directory](https://github.com/jonathantyar/nobi/blob/main/docs)
+
+```bash
+# this will generate the pre request data from dump
+php artisan db:seed
+```
+
 ### Prepare the pre request data
 
 To install the app it can be done either by using mysql dump or using db:seed from laravel.
