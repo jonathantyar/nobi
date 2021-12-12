@@ -38,7 +38,7 @@ class InvestmentProductController extends Controller
 
         $investmentProduct->refresh();
 
-        return response()->json([
+        return ResponseWrapper::success('Successfully updated the total balance', [
             'nab' => $investmentProduct->nab
         ]);
     }
@@ -49,12 +49,15 @@ class InvestmentProductController extends Controller
      * This endpoint allows you to list all the recent histories of NAB.
      *
      * @response scenario="Success"{
-     *  "nab": 1.2452,
+     * [
+     *  "nab": 2.4243,
+     *  "datetime": "2013-02-01 00:00:00"
+     * ]
      * }
      */
     public function listNAB(InvestmentProduct $investmentProduct)
     {
-        return response()->json($investmentProduct->histories);
+        return ResponseWrapper::success('Successfully get list of NAB histories', $investmentProduct->histories);
     }
 
     /**
@@ -63,7 +66,14 @@ class InvestmentProductController extends Controller
      * This endpoint allows you to list all member on these product investment.
      *
      * @response scenario="Success"{
-     *  "nab": 1.2452,
+     * [
+     *  "nab": 2.4243,
+     *  "members": [
+     *      "userid": 2924,
+     *      "total_unit_per_uid": 124234.3242,
+     *      "total_amountrupiah_per_uid": 25000.25
+     * ]
+     * ]
      * }
      */
     public function member(InvestmentProduct $investmentProduct, Request $request)
@@ -119,7 +129,7 @@ class InvestmentProductController extends Controller
         $user = User::find($request->user_id);
         $investment = $user->investmentOnProduct($investmentProduct->id);
 
-        return response()->json([
+        return ResponseWrapper::success('Penambahan berhasil dilakukan', [
             'nilai_unit_hasil_topup' => $nilaiUnitTopup,
             'nilai_unit_total' => $investment->pivot->unit,
             'saldo_rupiah_total' => Calculate::roundDown($investmentProduct->nab * $investment->pivot->unit, 2)
@@ -127,15 +137,15 @@ class InvestmentProductController extends Controller
     }
 
     /**
-     * Top Up
+     * Withdraw
      *
-     * This endpoint allows you to topup to the investment product.
+     * This endpoint allows you to withdraw to the investment product.
      *
      * @bodyParam user_id numeric required user id.
      * @bodyParam amount_rupiah numeric required the amount user want to top up.
      *
      * @response scenario="Success"{
-     *  "nilai_unit_hasil_topup": 1.2452,
+     *  "nilai_unit_setelah_withdraw": 1.2452,
      *  "nilai_unit_total": 1.2452,
      *  "saldo_rupiah_total": 129455.25,
      * }

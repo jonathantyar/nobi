@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+use ResponseWrapper;
 
 use App\Models\User;
 
@@ -38,7 +39,7 @@ class AuthController extends Controller
             'password' => Hash::make(config('nobi.default_password'))
         ]);
 
-        return response()->json([
+        return ResponseWrapper::success('Successfully created user', [
             'id_user' => $user->id
         ]);
     }
@@ -71,7 +72,7 @@ class AuthController extends Controller
             ]);
         }
 
-        return response()->json([
+        return ResponseWrapper::success('Successfully authenticated user', [
             'token' => $user->createToken($request->username)->plainTextToken
         ]);
     }
