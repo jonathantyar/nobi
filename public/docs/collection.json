@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Nobi Investment - API Documentation",
-        "_postman_id": "7bf74fef-03e0-41cb-a244-55a6fd3d152c",
+        "_postman_id": "d55c859a-1ba9-4536-854c-d31527ff639d",
         "description": "These are API Documentation for Nobi Investment",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -19,55 +19,6 @@
             "name": "Endpoints",
             "description": "",
             "item": [
-                {
-                    "name": "api\/user",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/user",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/user"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
                 {
                     "name": "User Add",
                     "request": {
@@ -91,7 +42,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"username\":\"delectus\",\"name\":\"ex\"}"
+                            "raw": "{\"username\":\"saepe\",\"name\":\"sed\"}"
                         },
                         "description": "This endpoint allows you to add a users to the database. It's a really useful endpoint,\n<aside class=\"notice\">Username should be unique :)<\/aside>\n<aside class=\"notice\">There are settings for default password<\/aside>",
                         "auth": {
@@ -130,7 +81,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"username\":\"suscipit\",\"password\":\"libero\"}"
+                            "raw": "{\"username\":\"ad\",\"password\":\"quae\"}"
                         },
                         "description": "This endpoint allows you to authenticate as user.\n<aside class=\"notice\">The default password are 'nobi'<\/aside>",
                         "auth": {
@@ -159,7 +110,7 @@
                                 {
                                     "id": "investment_product_code",
                                     "key": "investment_product_code",
-                                    "value": "fugit",
+                                    "value": "qui",
                                     "description": ""
                                 }
                             ]
@@ -177,7 +128,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"current_balance\":\"qui\"}"
+                            "raw": "{\"current_balance\":\"iure\"}"
                         },
                         "description": "This endpoint allows you to update total balance of an investment product.",
                         "auth": {
@@ -206,7 +157,7 @@
                                 {
                                     "id": "investment_product_code",
                                     "key": "investment_product_code",
-                                    "value": "beatae",
+                                    "value": "possimus",
                                     "description": ""
                                 }
                             ]
@@ -250,7 +201,7 @@
                                 {
                                     "id": "investment_product_code",
                                     "key": "investment_product_code",
-                                    "value": "blanditiis",
+                                    "value": "eum",
                                     "description": ""
                                 }
                             ]
@@ -294,7 +245,7 @@
                                 {
                                     "id": "investment_product_code",
                                     "key": "investment_product_code",
-                                    "value": "magni",
+                                    "value": "qui",
                                     "description": ""
                                 }
                             ]
@@ -312,7 +263,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"user_id\":\"et\",\"amount_rupiah\":\"et\"}"
+                            "raw": "{\"user_id\":\"doloribus\",\"amount_rupiah\":\"voluptatibus\"}"
                         },
                         "description": "This endpoint allows you to topup to the investment product.",
                         "auth": {
@@ -341,7 +292,7 @@
                                 {
                                     "id": "investment_product_code",
                                     "key": "investment_product_code",
-                                    "value": "qui",
+                                    "value": "delectus",
                                     "description": ""
                                 }
                             ]
@@ -359,7 +310,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"user_id\":\"maxime\",\"amount_rupiah\":\"vel\"}"
+                            "raw": "{\"user_id\":\"suscipit\",\"amount_rupiah\":\"consequatur\"}"
                         },
                         "description": "This endpoint allows you to withdraw to the investment product.",
                         "auth": {

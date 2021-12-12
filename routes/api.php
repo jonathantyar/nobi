@@ -17,10 +17,6 @@ use App\Http\Controllers\V1\InvestmentProductController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::prefix('v1')->group(function () {
     /*
     |--------------------------------------------------------------------------
