@@ -48,13 +48,13 @@ endpoints:
         name: username
         description: 'The username of the user.'
         required: true
-        example: et
+        example: voluptatibus
         type: string
       name:
         name: name
         description: 'The name of the user.'
         required: true
-        example: illum
+        example: beatae
         type: string
     responses:
       -
@@ -64,7 +64,7 @@ endpoints:
            "id_user": 4,
           }
         headers: []
-        description: '200'
+        description: '200, Success'
     responseFields: []
   -
     httpMethods:
@@ -87,21 +87,220 @@ endpoints:
         name: username
         description: 'The username of the user.'
         required: true
-        example: sunt
+        example: laudantium
         type: string
       password:
         name: password
         description: 'The password of the user.'
         required: true
-        example: voluptas
+        example: autem
         type: string
     responses:
       -
         status: 200
         content: |-
           {
-           "id_user": 4,
+           "token": 3|lObhIwULaaDGXCkK86wVfb9Kmcgdyx7BG19VtrBY,
           }
         headers: []
-        description: '200'
+        description: '200, Success'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/{investment_product_code}/updateTotalBalance'
+    metadata:
+      title: 'Update Total Balance'
+      description: 'This endpoint allows you to update total balance of an investment product.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      investment_product_code:
+        name: investment_product_code
+        description: ''
+        required: true
+        example: tempora
+        type: string
+    queryParameters: []
+    bodyParameters:
+      current_balance:
+        name: current_balance
+        description: 'The current balance of the product.'
+        required: true
+        example: consequatur
+        type: numeric
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "nab": 1.2452,
+          }
+        headers: []
+        description: '200, Success'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/{investment_product_code}/listNAB'
+    metadata:
+      title: 'List of NAB'
+      description: 'This endpoint allows you to list all the recent histories of NAB.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      investment_product_code:
+        name: investment_product_code
+        description: ''
+        required: true
+        example: est
+        type: string
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          [
+           "nab": 2.4243,
+           "datetime": "2013-02-01 00:00:00"
+          ]
+          }
+        headers: []
+        description: '200, Success'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/{investment_product_code}/member'
+    metadata:
+      title: 'List of Member'
+      description: 'This endpoint allows you to list all member on these product investment.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      investment_product_code:
+        name: investment_product_code
+        description: ''
+        required: true
+        example: non
+        type: string
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          [
+           "nab": 2.4243,
+           "members": [
+               "userid": 2924,
+               "total_unit_per_uid": 124234.3242,
+               "total_amountrupiah_per_uid": 25000.25
+          ]
+          ]
+          }
+        headers: []
+        description: '200, Success'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/{investment_product_code}/topup'
+    metadata:
+      title: 'Top Up'
+      description: 'This endpoint allows you to topup to the investment product.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      investment_product_code:
+        name: investment_product_code
+        description: ''
+        required: true
+        example: exercitationem
+        type: string
+    queryParameters: []
+    bodyParameters:
+      user_id:
+        name: user_id
+        description: 'user id.'
+        required: true
+        example: voluptatem
+        type: numeric
+      amount_rupiah:
+        name: amount_rupiah
+        description: 'the amount user want to top up.'
+        required: true
+        example: ut
+        type: numeric
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "nilai_unit_hasil_topup": 1.2452,
+           "nilai_unit_total": 1.2452,
+           "saldo_rupiah_total": 129455.25,
+          }
+        headers: []
+        description: '200, Success'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/{investment_product_code}/withdraw'
+    metadata:
+      title: Withdraw
+      description: 'This endpoint allows you to withdraw to the investment product.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      investment_product_code:
+        name: investment_product_code
+        description: ''
+        required: true
+        example: accusamus
+        type: string
+    queryParameters: []
+    bodyParameters:
+      user_id:
+        name: user_id
+        description: 'user id.'
+        required: true
+        example: ut
+        type: numeric
+      amount_rupiah:
+        name: amount_rupiah
+        description: 'the amount user want to top up.'
+        required: true
+        example: explicabo
+        type: numeric
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "nilai_unit_setelah_withdraw": 1.2452,
+           "nilai_unit_total": 1.2452,
+           "saldo_rupiah_total": 129455.25,
+          }
+        headers: []
+        description: '200, Success'
     responseFields: []

@@ -83,6 +83,21 @@
                                     <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-user-authenticate">
                         <a href="#endpoints-POSTapi-v1-user-authenticate">User Authenticate</a>
                     </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1--investment_product_code--updateTotalBalance">
+                        <a href="#endpoints-POSTapi-v1--investment_product_code--updateTotalBalance">Update Total Balance</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1--investment_product_code--listNAB">
+                        <a href="#endpoints-GETapi-v1--investment_product_code--listNAB">List of NAB</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1--investment_product_code--member">
+                        <a href="#endpoints-GETapi-v1--investment_product_code--member">List of Member</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1--investment_product_code--topup">
+                        <a href="#endpoints-POSTapi-v1--investment_product_code--topup">Top Up</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1--investment_product_code--withdraw">
+                        <a href="#endpoints-POSTapi-v1--investment_product_code--withdraw">Withdraw</a>
+                    </li>
                                                     </ul>
                             </ul>
         
@@ -95,7 +110,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: December 11 2021</li>
+        <li>Last updated: December 12 2021</li>
     </ul>
 </div>
 
@@ -233,8 +248,8 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"username\": \"et\",
-    \"name\": \"illum\"
+    \"username\": \"voluptatibus\",
+    \"name\": \"beatae\"
 }"
 </code></pre></div>
 
@@ -250,8 +265,8 @@ const headers = {
 };
 
 let body = {
-    "username": "et",
-    "name": "illum"
+    "username": "voluptatibus",
+    "name": "beatae"
 };
 
 fetch(url, {
@@ -264,7 +279,7 @@ fetch(url, {
 
 <span id="example-responses-POSTapi-v1-user-add">
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (200, Success):</p>
         </blockquote>
                 <pre>
 
@@ -318,7 +333,7 @@ fetch(url, {
                 <input type="text"
                name="username"
                data-endpoint="POSTapi-v1-user-add"
-               value="et"
+               value="voluptatibus"
                data-component="body" hidden>
     <br>
 <p>The username of the user.</p>
@@ -328,7 +343,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-v1-user-add"
-               value="illum"
+               value="beatae"
                data-component="body" hidden>
     <br>
 <p>The name of the user.</p>
@@ -353,8 +368,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"username\": \"sunt\",
-    \"password\": \"voluptas\"
+    \"username\": \"laudantium\",
+    \"password\": \"autem\"
 }"
 </code></pre></div>
 
@@ -370,8 +385,8 @@ const headers = {
 };
 
 let body = {
-    "username": "sunt",
-    "password": "voluptas"
+    "username": "laudantium",
+    "password": "autem"
 };
 
 fetch(url, {
@@ -384,12 +399,12 @@ fetch(url, {
 
 <span id="example-responses-POSTapi-v1-user-authenticate">
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (200, Success):</p>
         </blockquote>
                 <pre>
 
 <code class="language-json">{
- &quot;id_user&quot;: 4,
+ &quot;token&quot;: 3|lObhIwULaaDGXCkK86wVfb9Kmcgdyx7BG19VtrBY,
 }</code>
  </pre>
     </span>
@@ -438,7 +453,7 @@ fetch(url, {
                 <input type="text"
                name="username"
                data-endpoint="POSTapi-v1-user-authenticate"
-               value="sunt"
+               value="laudantium"
                data-component="body" hidden>
     <br>
 <p>The username of the user.</p>
@@ -448,10 +463,598 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-v1-user-authenticate"
-               value="voluptas"
+               value="autem"
                data-component="body" hidden>
     <br>
 <p>The password of the user.</p>
+        </p>
+        </form>
+
+            <h2 id="endpoints-POSTapi-v1--investment_product_code--updateTotalBalance">Update Total Balance</h2>
+
+<p>
+</p>
+
+<p>This endpoint allows you to update total balance of an investment product.</p>
+
+<span id="example-requests-POSTapi-v1--investment_product_code--updateTotalBalance">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/v1/tempora/updateTotalBalance" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"current_balance\": \"consequatur\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/tempora/updateTotalBalance"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "current_balance": "consequatur"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1--investment_product_code--updateTotalBalance">
+            <blockquote>
+            <p>Example response (200, Success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+ &quot;nab&quot;: 1.2452,
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1--investment_product_code--updateTotalBalance" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1--investment_product_code--updateTotalBalance"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1--investment_product_code--updateTotalBalance"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1--investment_product_code--updateTotalBalance" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1--investment_product_code--updateTotalBalance"></code></pre>
+</span>
+<form id="form-POSTapi-v1--investment_product_code--updateTotalBalance" data-method="POST"
+      data-path="api/v1/{investment_product_code}/updateTotalBalance"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1--investment_product_code--updateTotalBalance', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1--investment_product_code--updateTotalBalance"
+                    onclick="tryItOut('POSTapi-v1--investment_product_code--updateTotalBalance');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1--investment_product_code--updateTotalBalance"
+                    onclick="cancelTryOut('POSTapi-v1--investment_product_code--updateTotalBalance');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1--investment_product_code--updateTotalBalance" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/{investment_product_code}/updateTotalBalance</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>investment_product_code</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="investment_product_code"
+               data-endpoint="POSTapi-v1--investment_product_code--updateTotalBalance"
+               value="tempora"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>current_balance</code></b>&nbsp;&nbsp;<small>numeric</small>  &nbsp;
+                <input type="text"
+               name="current_balance"
+               data-endpoint="POSTapi-v1--investment_product_code--updateTotalBalance"
+               value="consequatur"
+               data-component="body" hidden>
+    <br>
+<p>The current balance of the product.</p>
+        </p>
+        </form>
+
+            <h2 id="endpoints-GETapi-v1--investment_product_code--listNAB">List of NAB</h2>
+
+<p>
+</p>
+
+<p>This endpoint allows you to list all the recent histories of NAB.</p>
+
+<span id="example-requests-GETapi-v1--investment_product_code--listNAB">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/est/listNAB" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/est/listNAB"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1--investment_product_code--listNAB">
+            <blockquote>
+            <p>Example response (200, Success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+[
+ &quot;nab&quot;: 2.4243,
+ &quot;datetime&quot;: &quot;2013-02-01 00:00:00&quot;
+]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1--investment_product_code--listNAB" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1--investment_product_code--listNAB"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1--investment_product_code--listNAB"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1--investment_product_code--listNAB" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1--investment_product_code--listNAB"></code></pre>
+</span>
+<form id="form-GETapi-v1--investment_product_code--listNAB" data-method="GET"
+      data-path="api/v1/{investment_product_code}/listNAB"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1--investment_product_code--listNAB', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1--investment_product_code--listNAB"
+                    onclick="tryItOut('GETapi-v1--investment_product_code--listNAB');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1--investment_product_code--listNAB"
+                    onclick="cancelTryOut('GETapi-v1--investment_product_code--listNAB');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1--investment_product_code--listNAB" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/{investment_product_code}/listNAB</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>investment_product_code</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="investment_product_code"
+               data-endpoint="GETapi-v1--investment_product_code--listNAB"
+               value="est"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    </form>
+
+            <h2 id="endpoints-GETapi-v1--investment_product_code--member">List of Member</h2>
+
+<p>
+</p>
+
+<p>This endpoint allows you to list all member on these product investment.</p>
+
+<span id="example-requests-GETapi-v1--investment_product_code--member">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/non/member" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/non/member"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1--investment_product_code--member">
+            <blockquote>
+            <p>Example response (200, Success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+[
+ &quot;nab&quot;: 2.4243,
+ &quot;members&quot;: [
+     &quot;userid&quot;: 2924,
+     &quot;total_unit_per_uid&quot;: 124234.3242,
+     &quot;total_amountrupiah_per_uid&quot;: 25000.25
+]
+]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1--investment_product_code--member" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1--investment_product_code--member"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1--investment_product_code--member"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1--investment_product_code--member" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1--investment_product_code--member"></code></pre>
+</span>
+<form id="form-GETapi-v1--investment_product_code--member" data-method="GET"
+      data-path="api/v1/{investment_product_code}/member"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1--investment_product_code--member', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1--investment_product_code--member"
+                    onclick="tryItOut('GETapi-v1--investment_product_code--member');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1--investment_product_code--member"
+                    onclick="cancelTryOut('GETapi-v1--investment_product_code--member');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1--investment_product_code--member" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/{investment_product_code}/member</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>investment_product_code</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="investment_product_code"
+               data-endpoint="GETapi-v1--investment_product_code--member"
+               value="non"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    </form>
+
+            <h2 id="endpoints-POSTapi-v1--investment_product_code--topup">Top Up</h2>
+
+<p>
+</p>
+
+<p>This endpoint allows you to topup to the investment product.</p>
+
+<span id="example-requests-POSTapi-v1--investment_product_code--topup">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/v1/exercitationem/topup" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"user_id\": \"voluptatem\",
+    \"amount_rupiah\": \"ut\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/exercitationem/topup"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "user_id": "voluptatem",
+    "amount_rupiah": "ut"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1--investment_product_code--topup">
+            <blockquote>
+            <p>Example response (200, Success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+ &quot;nilai_unit_hasil_topup&quot;: 1.2452,
+ &quot;nilai_unit_total&quot;: 1.2452,
+ &quot;saldo_rupiah_total&quot;: 129455.25,
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1--investment_product_code--topup" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1--investment_product_code--topup"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1--investment_product_code--topup"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1--investment_product_code--topup" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1--investment_product_code--topup"></code></pre>
+</span>
+<form id="form-POSTapi-v1--investment_product_code--topup" data-method="POST"
+      data-path="api/v1/{investment_product_code}/topup"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1--investment_product_code--topup', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1--investment_product_code--topup"
+                    onclick="tryItOut('POSTapi-v1--investment_product_code--topup');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1--investment_product_code--topup"
+                    onclick="cancelTryOut('POSTapi-v1--investment_product_code--topup');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1--investment_product_code--topup" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/{investment_product_code}/topup</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>investment_product_code</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="investment_product_code"
+               data-endpoint="POSTapi-v1--investment_product_code--topup"
+               value="exercitationem"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>user_id</code></b>&nbsp;&nbsp;<small>numeric</small>  &nbsp;
+                <input type="text"
+               name="user_id"
+               data-endpoint="POSTapi-v1--investment_product_code--topup"
+               value="voluptatem"
+               data-component="body" hidden>
+    <br>
+<p>user id.</p>
+        </p>
+                <p>
+            <b><code>amount_rupiah</code></b>&nbsp;&nbsp;<small>numeric</small>  &nbsp;
+                <input type="text"
+               name="amount_rupiah"
+               data-endpoint="POSTapi-v1--investment_product_code--topup"
+               value="ut"
+               data-component="body" hidden>
+    <br>
+<p>the amount user want to top up.</p>
+        </p>
+        </form>
+
+            <h2 id="endpoints-POSTapi-v1--investment_product_code--withdraw">Withdraw</h2>
+
+<p>
+</p>
+
+<p>This endpoint allows you to withdraw to the investment product.</p>
+
+<span id="example-requests-POSTapi-v1--investment_product_code--withdraw">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/v1/accusamus/withdraw" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"user_id\": \"ut\",
+    \"amount_rupiah\": \"explicabo\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/accusamus/withdraw"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "user_id": "ut",
+    "amount_rupiah": "explicabo"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1--investment_product_code--withdraw">
+            <blockquote>
+            <p>Example response (200, Success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+ &quot;nilai_unit_setelah_withdraw&quot;: 1.2452,
+ &quot;nilai_unit_total&quot;: 1.2452,
+ &quot;saldo_rupiah_total&quot;: 129455.25,
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1--investment_product_code--withdraw" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1--investment_product_code--withdraw"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1--investment_product_code--withdraw"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1--investment_product_code--withdraw" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1--investment_product_code--withdraw"></code></pre>
+</span>
+<form id="form-POSTapi-v1--investment_product_code--withdraw" data-method="POST"
+      data-path="api/v1/{investment_product_code}/withdraw"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1--investment_product_code--withdraw', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1--investment_product_code--withdraw"
+                    onclick="tryItOut('POSTapi-v1--investment_product_code--withdraw');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1--investment_product_code--withdraw"
+                    onclick="cancelTryOut('POSTapi-v1--investment_product_code--withdraw');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1--investment_product_code--withdraw" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/{investment_product_code}/withdraw</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>investment_product_code</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="investment_product_code"
+               data-endpoint="POSTapi-v1--investment_product_code--withdraw"
+               value="accusamus"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>user_id</code></b>&nbsp;&nbsp;<small>numeric</small>  &nbsp;
+                <input type="text"
+               name="user_id"
+               data-endpoint="POSTapi-v1--investment_product_code--withdraw"
+               value="ut"
+               data-component="body" hidden>
+    <br>
+<p>user id.</p>
+        </p>
+                <p>
+            <b><code>amount_rupiah</code></b>&nbsp;&nbsp;<small>numeric</small>  &nbsp;
+                <input type="text"
+               name="amount_rupiah"
+               data-endpoint="POSTapi-v1--investment_product_code--withdraw"
+               value="explicabo"
+               data-component="body" hidden>
+    <br>
+<p>the amount user want to top up.</p>
         </p>
         </form>
 
