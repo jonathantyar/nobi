@@ -131,7 +131,7 @@ class InvestmentProductController extends Controller
 
         return ResponseWrapper::success('Penambahan berhasil dilakukan', [
             'nilai_unit_hasil_topup' => $nilaiUnitTopup,
-            'nilai_unit_total' => $investment->pivot->unit,
+            'nilai_unit_total' => Calculate::roundDown($investment->pivot->unit, 4),
             'saldo_rupiah_total' => Calculate::roundDown($investmentProduct->nab * $investment->pivot->unit, 2)
         ]);
     }
@@ -179,7 +179,7 @@ class InvestmentProductController extends Controller
 
         return ResponseWrapper::success('Penarikan berhasil dilakukan', [
             'nilai_unit_setelah_withdraw' => $nilaiUnitTopup,
-            'nilai_unit_total' => $investment->pivot->unit,
+            'nilai_unit_total' => Calculate::roundDown($investment->pivot->unit, 4),
             'saldo_rupiah_total' => Calculate::roundDown($investmentProduct->nab * $investment->pivot->unit, 2)
         ]);
     }
