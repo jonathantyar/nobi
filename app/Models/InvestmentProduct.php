@@ -22,7 +22,7 @@ class InvestmentProduct extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'user_investment')->withPivot(['unit']);
+        return $this->belongsToMany(User::class, 'user_investment')->withPivot(['unit'])->withTimestamps();
     }
 
     public function totalUnitInvestment()

@@ -35,7 +35,7 @@ class User extends Authenticatable
 
     public function investments()
     {
-        return $this->belongsToMany(InvestmentProduct::class, 'user_investment')->withPivot(['unit']);
+        return $this->belongsToMany(InvestmentProduct::class, 'user_investment')->withPivot(['unit'])->withTimestamps();
     }
 
     public function investmentOnProduct(Int $investmentProductId)
