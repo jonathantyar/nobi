@@ -37,6 +37,7 @@ Route::prefix('v1')->group(function () {
         Route::post('/updateTotalBalance', [InvestmentProductController::class, 'updateTotalBalance'])->name('update.balance');
 
         Route::get('/listNAB', [InvestmentProductController::class, 'listNAB'])->name('list.nab');
+        Route::get('/member', [InvestmentProductController::class, 'member'])->name('member');
 
         Route::post('/topup', [InvestmentProductController::class, 'topup'])->name('topup');
         Route::post('/withdraw', [InvestmentProductController::class, 'withdraw'])->name('withdraw');

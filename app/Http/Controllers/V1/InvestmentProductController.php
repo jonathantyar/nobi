@@ -13,6 +13,8 @@ use App\Models\User;
 use App\StorableEvents\Transaction;
 use App\StorableEvents\UpdateTotalBalance;
 
+use App\Http\Resources\MemberResource;
+
 class InvestmentProductController extends Controller
 {
     /**
@@ -44,7 +46,7 @@ class InvestmentProductController extends Controller
     /**
      * List of NAB
      *
-     * This endpoint allows you to update total balance of an investment product.
+     * This endpoint allows you to list all the recent histories of NAB.
      *
      * @response scenario="Success"{
      *  "nab": 1.2452,
@@ -53,6 +55,32 @@ class InvestmentProductController extends Controller
     public function listNAB(InvestmentProduct $investmentProduct)
     {
         return response()->json($investmentProduct->histories);
+    }
+
+    /**
+     * List of Member
+     *
+     * This endpoint allows you to list all member on these product investment.
+     *
+     * @response scenario="Success"{
+     *  "nab": 1.2452,
+     * }
+     */
+    public function member(InvestmentProduct $investmentProduct, Request $request)
+    {
+        $userId = $request->input('userid', false);
+        $limit  = $request->input('limit', 20);
+
+        $members = $investmentProduct->users()->orderBy('users.id');
+        $members = $userId ? $members->where('users.id', $userId) : $members;
+        $members = $members->paginate($limit);
+
+        $request->nab = $investmentProduct->nab;
+
+        return ResponseWrapper::success('List investment member', [
+            'nab'     => $request->nab,
+            'members' => MemberResource::collection($members->items())
+        ]);
     }
 
     /**
