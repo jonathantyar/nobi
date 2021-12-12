@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Documentation</title>
+    <title>Nobi Investment - API Documentation</title>
 
     <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
 
@@ -118,7 +118,7 @@
     <div class="dark-box"></div>
     <div class="content">
         <h1 id="introduction">Introduction</h1>
-<p>These are API Documentation from using scribe</p>
+<p>These are API Documentation for Nobi Investment</p>
 <p>This documentation aims to provide all the information you need to work with our API.</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
 You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
@@ -248,8 +248,8 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"username\": \"voluptatibus\",
-    \"name\": \"beatae\"
+    \"username\": \"delectus\",
+    \"name\": \"ex\"
 }"
 </code></pre></div>
 
@@ -265,8 +265,8 @@ const headers = {
 };
 
 let body = {
-    "username": "voluptatibus",
-    "name": "beatae"
+    "username": "delectus",
+    "name": "ex"
 };
 
 fetch(url, {
@@ -333,7 +333,7 @@ fetch(url, {
                 <input type="text"
                name="username"
                data-endpoint="POSTapi-v1-user-add"
-               value="voluptatibus"
+               value="delectus"
                data-component="body" hidden>
     <br>
 <p>The username of the user.</p>
@@ -343,7 +343,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-v1-user-add"
-               value="beatae"
+               value="ex"
                data-component="body" hidden>
     <br>
 <p>The name of the user.</p>
@@ -368,8 +368,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"username\": \"laudantium\",
-    \"password\": \"autem\"
+    \"username\": \"suscipit\",
+    \"password\": \"libero\"
 }"
 </code></pre></div>
 
@@ -385,8 +385,8 @@ const headers = {
 };
 
 let body = {
-    "username": "laudantium",
-    "password": "autem"
+    "username": "suscipit",
+    "password": "libero"
 };
 
 fetch(url, {
@@ -453,7 +453,7 @@ fetch(url, {
                 <input type="text"
                name="username"
                data-endpoint="POSTapi-v1-user-authenticate"
-               value="laudantium"
+               value="suscipit"
                data-component="body" hidden>
     <br>
 <p>The username of the user.</p>
@@ -463,7 +463,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-v1-user-authenticate"
-               value="autem"
+               value="libero"
                data-component="body" hidden>
     <br>
 <p>The password of the user.</p>
@@ -483,18 +483,18 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/v1/tempora/updateTotalBalance" \
+    "http://localhost/api/v1/fugit/updateTotalBalance" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"current_balance\": \"consequatur\"
+    \"current_balance\": \"qui\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/tempora/updateTotalBalance"
+    "http://localhost/api/v1/fugit/updateTotalBalance"
 );
 
 const headers = {
@@ -503,7 +503,7 @@ const headers = {
 };
 
 let body = {
-    "current_balance": "consequatur"
+    "current_balance": "qui"
 };
 
 fetch(url, {
@@ -570,7 +570,7 @@ fetch(url, {
                 <input type="text"
                name="investment_product_code"
                data-endpoint="POSTapi-v1--investment_product_code--updateTotalBalance"
-               value="tempora"
+               value="fugit"
                data-component="url" hidden>
     <br>
 
@@ -581,7 +581,7 @@ fetch(url, {
                 <input type="text"
                name="current_balance"
                data-endpoint="POSTapi-v1--investment_product_code--updateTotalBalance"
-               value="consequatur"
+               value="qui"
                data-component="body" hidden>
     <br>
 <p>The current balance of the product.</p>
@@ -601,14 +601,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/est/listNAB" \
+    --get "http://localhost/api/v1/beatae/listNAB" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/est/listNAB"
+    "http://localhost/api/v1/beatae/listNAB"
 );
 
 const headers = {
@@ -682,7 +682,7 @@ fetch(url, {
                 <input type="text"
                name="investment_product_code"
                data-endpoint="GETapi-v1--investment_product_code--listNAB"
-               value="est"
+               value="beatae"
                data-component="url" hidden>
     <br>
 
@@ -702,14 +702,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/non/member" \
+    --get "http://localhost/api/v1/blanditiis/member" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/non/member"
+    "http://localhost/api/v1/blanditiis/member"
 );
 
 const headers = {
@@ -787,7 +787,7 @@ fetch(url, {
                 <input type="text"
                name="investment_product_code"
                data-endpoint="GETapi-v1--investment_product_code--member"
-               value="non"
+               value="blanditiis"
                data-component="url" hidden>
     <br>
 
@@ -807,19 +807,19 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/v1/exercitationem/topup" \
+    "http://localhost/api/v1/magni/topup" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"user_id\": \"voluptatem\",
-    \"amount_rupiah\": \"ut\"
+    \"user_id\": \"et\",
+    \"amount_rupiah\": \"et\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/exercitationem/topup"
+    "http://localhost/api/v1/magni/topup"
 );
 
 const headers = {
@@ -828,8 +828,8 @@ const headers = {
 };
 
 let body = {
-    "user_id": "voluptatem",
-    "amount_rupiah": "ut"
+    "user_id": "et",
+    "amount_rupiah": "et"
 };
 
 fetch(url, {
@@ -898,7 +898,7 @@ fetch(url, {
                 <input type="text"
                name="investment_product_code"
                data-endpoint="POSTapi-v1--investment_product_code--topup"
-               value="exercitationem"
+               value="magni"
                data-component="url" hidden>
     <br>
 
@@ -909,7 +909,7 @@ fetch(url, {
                 <input type="text"
                name="user_id"
                data-endpoint="POSTapi-v1--investment_product_code--topup"
-               value="voluptatem"
+               value="et"
                data-component="body" hidden>
     <br>
 <p>user id.</p>
@@ -919,7 +919,7 @@ fetch(url, {
                 <input type="text"
                name="amount_rupiah"
                data-endpoint="POSTapi-v1--investment_product_code--topup"
-               value="ut"
+               value="et"
                data-component="body" hidden>
     <br>
 <p>the amount user want to top up.</p>
@@ -939,19 +939,19 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/v1/accusamus/withdraw" \
+    "http://localhost/api/v1/qui/withdraw" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"user_id\": \"ut\",
-    \"amount_rupiah\": \"explicabo\"
+    \"user_id\": \"maxime\",
+    \"amount_rupiah\": \"vel\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/accusamus/withdraw"
+    "http://localhost/api/v1/qui/withdraw"
 );
 
 const headers = {
@@ -960,8 +960,8 @@ const headers = {
 };
 
 let body = {
-    "user_id": "ut",
-    "amount_rupiah": "explicabo"
+    "user_id": "maxime",
+    "amount_rupiah": "vel"
 };
 
 fetch(url, {
@@ -1030,7 +1030,7 @@ fetch(url, {
                 <input type="text"
                name="investment_product_code"
                data-endpoint="POSTapi-v1--investment_product_code--withdraw"
-               value="accusamus"
+               value="qui"
                data-component="url" hidden>
     <br>
 
@@ -1041,7 +1041,7 @@ fetch(url, {
                 <input type="text"
                name="user_id"
                data-endpoint="POSTapi-v1--investment_product_code--withdraw"
-               value="ut"
+               value="maxime"
                data-component="body" hidden>
     <br>
 <p>user id.</p>
@@ -1051,7 +1051,7 @@ fetch(url, {
                 <input type="text"
                name="amount_rupiah"
                data-endpoint="POSTapi-v1--investment_product_code--withdraw"
-               value="explicabo"
+               value="vel"
                data-component="body" hidden>
     <br>
 <p>the amount user want to top up.</p>

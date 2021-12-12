@@ -50,13 +50,13 @@ endpoints:
         name: username
         description: 'The username of the user.'
         required: true
-        example: voluptatibus
+        example: delectus
         type: string
       name:
         name: name
         description: 'The name of the user.'
         required: true
-        example: beatae
+        example: ex
         type: string
     responses:
       -
@@ -89,13 +89,13 @@ endpoints:
         name: username
         description: 'The username of the user.'
         required: true
-        example: laudantium
+        example: suscipit
         type: string
       password:
         name: password
         description: 'The password of the user.'
         required: true
-        example: autem
+        example: libero
         type: string
     responses:
       -
@@ -124,7 +124,7 @@ endpoints:
         name: investment_product_code
         description: ''
         required: true
-        example: tempora
+        example: fugit
         type: string
     queryParameters: []
     bodyParameters:
@@ -132,7 +132,7 @@ endpoints:
         name: current_balance
         description: 'The current balance of the product.'
         required: true
-        example: consequatur
+        example: qui
         type: numeric
     responses:
       -
@@ -161,7 +161,7 @@ endpoints:
         name: investment_product_code
         description: ''
         required: true
-        example: est
+        example: beatae
         type: string
     queryParameters: []
     bodyParameters: []
@@ -195,7 +195,7 @@ endpoints:
         name: investment_product_code
         description: ''
         required: true
-        example: non
+        example: blanditiis
         type: string
     queryParameters: []
     bodyParameters: []
@@ -233,7 +233,7 @@ endpoints:
         name: investment_product_code
         description: ''
         required: true
-        example: exercitationem
+        example: magni
         type: string
     queryParameters: []
     bodyParameters:
@@ -241,13 +241,13 @@ endpoints:
         name: user_id
         description: 'user id.'
         required: true
-        example: voluptatem
+        example: et
         type: numeric
       amount_rupiah:
         name: amount_rupiah
         description: 'the amount user want to top up.'
         required: true
-        example: ut
+        example: et
         type: numeric
     responses:
       -
@@ -278,7 +278,7 @@ endpoints:
         name: investment_product_code
         description: ''
         required: true
-        example: accusamus
+        example: qui
         type: string
     queryParameters: []
     bodyParameters:
@@ -286,13 +286,13 @@ endpoints:
         name: user_id
         description: 'user id.'
         required: true
-        example: ut
+        example: maxime
         type: numeric
       amount_rupiah:
         name: amount_rupiah
         description: 'the amount user want to top up.'
         required: true
-        example: explicabo
+        example: vel
         type: numeric
     responses:
       -

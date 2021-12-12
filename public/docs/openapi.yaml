@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
-  title: 'API Documentation'
-  description: 'These are API Documentation from using scribe'
+  title: 'Nobi Investment - API Documentation'
+  description: 'These are API Documentation for Nobi Investment'
   version: 1.0.0
 servers:
   -
@@ -81,11 +81,11 @@ paths:
                 username:
                   type: string
                   description: 'The username of the user.'
-                  example: voluptatibus
+                  example: delectus
                 name:
                   type: string
                   description: 'The name of the user.'
-                  example: beatae
+                  example: ex
               required:
                 - username
                 - name
@@ -129,11 +129,11 @@ paths:
                 username:
                   type: string
                   description: 'The username of the user.'
-                  example: laudantium
+                  example: suscipit
                 password:
                   type: string
                   description: 'The password of the user.'
-                  example: autem
+                  example: libero
               required:
                 - username
                 - password
@@ -177,7 +177,7 @@ paths:
                 current_balance:
                   type: numeric
                   description: 'The current balance of the product.'
-                  example: consequatur
+                  example: qui
               required:
                 - current_balance
       security: []
@@ -186,7 +186,7 @@ paths:
         in: path
         name: investment_product_code
         description: ''
-        example: tempora
+        example: fugit
         required: true
         schema:
           type: string
@@ -225,7 +225,7 @@ paths:
         in: path
         name: investment_product_code
         description: ''
-        example: est
+        example: beatae
         required: true
         schema:
           type: string
@@ -264,7 +264,7 @@ paths:
         in: path
         name: investment_product_code
         description: ''
-        example: non
+        example: blanditiis
         required: true
         schema:
           type: string
@@ -307,11 +307,11 @@ paths:
                 user_id:
                   type: numeric
                   description: 'user id.'
-                  example: voluptatem
+                  example: et
                 amount_rupiah:
                   type: numeric
                   description: 'the amount user want to top up.'
-                  example: ut
+                  example: et
               required:
                 - user_id
                 - amount_rupiah
@@ -321,7 +321,7 @@ paths:
         in: path
         name: investment_product_code
         description: ''
-        example: exercitationem
+        example: magni
         required: true
         schema:
           type: string
@@ -364,11 +364,11 @@ paths:
                 user_id:
                   type: numeric
                   description: 'user id.'
-                  example: ut
+                  example: maxime
                 amount_rupiah:
                   type: numeric
                   description: 'the amount user want to top up.'
-                  example: explicabo
+                  example: vel
               required:
                 - user_id
                 - amount_rupiah
@@ -378,7 +378,7 @@ paths:
         in: path
         name: investment_product_code
         description: ''
-        example: accusamus
+        example: qui
         required: true
         schema:
           type: string

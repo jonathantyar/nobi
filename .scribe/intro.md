@@ -1,6 +1,6 @@
 # Introduction
 
-These are API Documentation from using scribe
+These are API Documentation for Nobi Investment
 
 This documentation aims to provide all the information you need to work with our API.
 

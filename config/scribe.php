@@ -9,12 +9,12 @@ return [
     /*
      * The HTML <title> for the generated documentation. If this is empty, Scribe will infer it from config('app.name').
      */
-    'title' => 'API Documentation',
+    'title' => 'Nobi Investment - API Documentation',
 
     /*
      * A short description of your API. Will be included in the docs webpage, Postman collection and OpenAPI spec.
      */
-    'description' => 'These are API Documentation from using scribe',
+    'description' => 'These are API Documentation for Nobi Investment',
 
     /*
      * The base URL displayed in the docs. If this is empty, Scribe will use the value of config('app.url').
